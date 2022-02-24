@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0c826200011974d8613780efdca7f2, type: 3}
+  m_Name: Gems Factory
+  m_EditorClassIdentifier: 
+  _gemConfigs:
+  - gemType: 0
+    gemMaterial: {fileID: 2100000, guid: 352b12446f3c001469c7331823f53470, type: 2}
+    cost: 1
+    spawnProportion: 50
+  - gemType: 1
+    gemMaterial: {fileID: 2100000, guid: 7529b176e8413ab4283d3316e18bf960, type: 2}
+    cost: 2
+    spawnProportion: 30
+  - gemType: 2
+    gemMaterial: {fileID: 2100000, guid: 57fa21a13f1fe3f4fbd6380329bbf091, type: 2}
+    cost: 5
+    spawnProportion: 20
+  - gemType: 3
+    gemMaterial: {fileID: 2100000, guid: 1b707d0b605e3054e887af57e1616db9, type: 2}
+    cost: 10
+    spawnProportion: 10
