@@ -21,14 +21,16 @@ public class GemsSpawner : MonoBehaviour
         while (true)
         {
             var gem = _gemsPool.ActivatePoolObject();
+            if (gem != null)
+            {
+                gem.OnActvate();
+                gem.transform.position = _spawnPoints[Random.Range(0, _spawnPoints.GetLength(0))].position;
 
-            gem.OnActvate();
-            gem.transform.position = _spawnPoints[Random.Range(0, _spawnPoints.GetLength(0))].position;
-            
-            int totalProportions = _gemsFactory.GetTotalProportions();
-            int proportion = Random.Range(0, totalProportions);
-            _gemsFactory.SetConfig(gem, _gemsFactory.GetGemTypeByProportion(proportion));
-            
+                int totalProportions = _gemsFactory.GetTotalProportions();
+                int proportion = Random.Range(0, totalProportions);
+                _gemsFactory.SetConfig(gem, _gemsFactory.GetGemTypeByProportion(proportion));
+            }
+
             yield return new WaitForSeconds(_spawnDelay);
         }
     }

@@ -13,13 +13,13 @@ public class GemsPicker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<Gem>(out Gem gem))
+        if (other.TryGetComponent<IPortable<Gem>>(out IPortable<Gem> gem))
         {
             PickUp(gem);
         }
     }
 
-    private void PickUp(Gem gem)
+    private void PickUp(IPortable<Gem> gem)
     {
         _gemsProvider.AddGem(gem);
     }

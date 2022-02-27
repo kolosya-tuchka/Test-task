@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Gem : MonoBehaviour
+public class Gem : MonoBehaviour, IPortable<Gem>
 {
     public int Cost { get; private set; }
 
@@ -18,10 +18,13 @@ public class Gem : MonoBehaviour
         GetComponent<Collider>().enabled = true;
     }
 
-    public void OnPicked()
+    public void OnPicked(Transform pickPoint)
     {
         GetComponent<Rigidbody>().isKinematic = true;
         GetComponent<Collider>().enabled = false;
+        
+        transform.position = pickPoint.position;
+        transform.parent = pickPoint;
     }
 
     public void OnUnloaded()

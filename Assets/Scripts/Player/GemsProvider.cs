@@ -16,22 +16,20 @@ public class GemsProvider : MonoBehaviour
         }
     }
 
-    private List<Gem> _pickedGems;
+    private List<IPortable<Gem>> _pickedGems;
 
     private void Start()
     {
-        _pickedGems = new List<Gem>();
+        _pickedGems = new List<IPortable<Gem>>();
         _scoreUI.UpdateScoreText(Score);
     }
 
-    public void AddGem(Gem gem)
+    public void AddGem(IPortable<Gem> gem)
     {
         if (_pickedGems.Count == _gemsCapacity) return;
-
-        gem.transform.position = _gemsProviderPoints[_pickedGems.Count].position;
-        gem.transform.parent = _gemsProviderPoints[_pickedGems.Count];
+        
+        gem.OnPicked(_gemsProviderPoints[_pickedGems.Count]);
         _pickedGems.Add(gem);
-        gem.OnPicked();
     }
 
     private void UnloadGems()
